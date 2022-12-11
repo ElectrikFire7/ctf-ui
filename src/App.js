@@ -1,8 +1,11 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 
 import "./App.css";
+import santa from "./santa.png";
 
 function App() {
+    const [page2] = useState(window.location.href.split("?")[1] === "q=2");
+
     const get2021Gift = useCallback(() => alert("PS5 + Last Of Us 2"), []);
     const getGift = useCallback(async () => {
         try {
@@ -25,15 +28,33 @@ function App() {
 
     return (
         <div className="App">
-            <header className="App-header">Yearly X'mas GIFTS !!!</header>
-            <div className="buttons">
-                <button onClick={get2021Gift} className="gift-button">
-                    2021 gift
-                </button>
-                <button onClick={getGift} className="gift-button">
-                    2022 gift
-                </button>
-            </div>
+            {page2 ? (
+                <div className="container">
+                    <img src={santa} className="santa" alt="santa" />
+                    <a
+                        href="https://drive.google.com/file/d/1ddYAQpT_9gyYFCl-GE7XVSAkIgylYNAd/view?usp=sharing"
+                        className="link"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        .
+                    </a>
+                </div>
+            ) : (
+                <>
+                    <header className="App-header">
+                        Yearly X'mas GIFTS !!!
+                    </header>
+                    <div className="buttons">
+                        <button onClick={get2021Gift} className="gift-button">
+                            2021 gift
+                        </button>
+                        <button onClick={getGift} className="gift-button">
+                            2022 gift
+                        </button>
+                    </div>
+                </>
+            )}
         </div>
     );
 }

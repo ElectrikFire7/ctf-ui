@@ -51,3 +51,23 @@
     color: #282c34;
     font-size: 24px;
 }
+
+.container {
+    position: relative;
+    display: flex;
+}
+
+.santa {
+    position: absolute;
+    height: 800px;
+    width: 800px;
+    object-fit: contain;
+}
+
+.link {
+    position: absolute;
+    top: 116px;
+    left: 462px;
+    padding: 0 8px;
+    opacity: 0;
+}
