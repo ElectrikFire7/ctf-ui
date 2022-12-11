@@ -1,9 +1,9 @@
 import { useCallback } from "react";
 
 import "./App.css";
-import logo from "./logo.svg";
 
 function App() {
+    const get2021Gift = useCallback(() => alert("PS5 + Last Of Us 2"), []);
     const getGift = useCallback(async () => {
         try {
             const response = await fetch(
@@ -11,13 +11,13 @@ function App() {
                 {
                     method: "POST",
                     body: JSON.stringify({
-                        time: new Date(2025, 0, 10).toISOString(),
+                        time: new Date().toISOString(),
                     }),
                 }
             );
             if (response.status === 200)
-                alert(`ICS{${(await response.json()).code}}`);
-            else alert("Can't get gift before Xmas");
+                alert(`ISTE_CTF{${(await response.json()).code}}`);
+            else alert("Can't open gift before Christmas");
         } catch (error) {
             console.log(error.message);
         }
@@ -25,10 +25,15 @@ function App() {
 
     return (
         <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <button onClick={getGift}>Get Fat man gift</button>
-            </header>
+            <header className="App-header">Yearly X'mas GIFTS !!!</header>
+            <div className="buttons">
+                <button onClick={get2021Gift} className="gift-button">
+                    2021 gift
+                </button>
+                <button onClick={getGift} className="gift-button">
+                    2022 gift
+                </button>
+            </div>
         </div>
     );
 }
