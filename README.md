@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Santa ctf question for ISTE
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Santa question for Capture the Flag ISTE where you have to poke Santa's eye 
 
 ## Available Scripts
 
